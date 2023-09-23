@@ -5,9 +5,6 @@ from ..models import Article
 
 
 class ArticleSerializer(BaseSerializer):
-    # title = serializers.CharField(max_length=250, allow_blank=True)
-    # body = serializers.CharField(allow_blank=True)
-    # favourite_count = serializers.IntegerField(default=0)
 
     class Meta:
         model = Article

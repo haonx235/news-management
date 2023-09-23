@@ -1,9 +1,13 @@
-from rest_framework import viewsets
+from rest_framework import mixins, viewsets
 
-from ..models import BaseModel
 from ..serializers import BaseSerializer
 
 
-class BaseViewSet(viewsets.ModelViewSet):
-    queryset = BaseModel.objects.all()
+class BaseViewSet(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  mixins.DestroyModelMixin,
+                  viewsets.GenericViewSet):
     serializer_class = BaseSerializer
+
+    class Meta:
+        abstract = True
