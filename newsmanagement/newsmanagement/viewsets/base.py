@@ -5,7 +5,6 @@ from ..serializers import BaseSerializer
 
 class BaseViewSet(mixins.ListModelMixin,
                   mixins.CreateModelMixin,
-                  mixins.DestroyModelMixin,
                   viewsets.GenericViewSet):
     serializer_class = BaseSerializer
 

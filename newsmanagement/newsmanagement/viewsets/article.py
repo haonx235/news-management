@@ -1,6 +1,7 @@
 from rest_framework import mixins, status
 from rest_framework.decorators import action
 from rest_framework.exceptions import APIException
+from rest_framework.generics import UpdateAPIView
 from rest_framework.response import Response
 
 from .base import BaseViewSet
@@ -9,9 +10,11 @@ from ..serializers import ArticleSerializer
 
 
 class ArticleViewSet(BaseViewSet,
-                     mixins.UpdateModelMixin):
+                     UpdateAPIView,
+                     mixins.DestroyModelMixin):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    http_method_names = ["get", "post", "put", "delete"]
 
     @action(methods=['POST', 'DELETE'], detail=True, url_path='favorite', url_name='favorite')
     def favorite(self, request, pk):

@@ -36,9 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'rest_framework',
-    'newsmanagement'
+    'newsmanagement',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -149,5 +150,15 @@ LOGGING = {
 }
 
 REST_FRAMEWORK = {
-    'UNAUTHENTICATED_USER': None
+    'UNAUTHENTICATED_USER': None,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 100,
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'newsmanagement.authentication.TokenAuthentication'
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'newsmanagement.authentication.IsAuthenticated'
+    ]
 }
+
+AUTH_USER_MODEL = 'newsmanagement.User'
