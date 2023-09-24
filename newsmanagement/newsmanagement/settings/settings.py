@@ -89,7 +89,11 @@ DATABASES = {
         'USER': 'newsmanagement',
         'PASSWORD': '123456',
         'HOST': 'localhost',
-        'PORT': 3306
+        'PORT': 3306,
+        'TEST': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'test_newsmanagement',
+        },
     }
 }
 
@@ -155,6 +159,7 @@ REST_FRAMEWORK = {
     'UNAUTHENTICATED_USER': None,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100,
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'newsmanagement.authentication.TokenAuthentication'
     ],

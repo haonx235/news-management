@@ -4,6 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import APIException
 from rest_framework.generics import UpdateAPIView
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .base import BaseViewSet
 from ..models import Article
@@ -100,6 +101,8 @@ class ArticleViewSet(BaseViewSet,
                      mixins.DestroyModelMixin):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['id', 'title']
     http_method_names = ["get", "post", "put", "delete"]
 
     @extend_schema(methods=["post", "delete"], operation={
