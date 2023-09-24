@@ -1,9 +1,12 @@
-from rest_framework import serializers
+from drf_spectacular.utils import extend_schema_serializer
 
 from .base import BaseSerializer
 from ..models import User
 
 
+@extend_schema_serializer(
+    exclude_fields=['password']
+)
 class UserSerializer(BaseSerializer):
 
     class Meta:

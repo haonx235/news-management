@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'newsmanagement',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    'drf_spectacular_sidecar'
 ]
 
 MIDDLEWARE = [
@@ -158,7 +160,15 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'newsmanagement.authentication.IsAuthenticated'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'newsmanagement.schemas.CustomAutoSchema'
 }
 
 AUTH_USER_MODEL = 'newsmanagement.User'
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'News Management',
+    'DESCRIPTION': 'A Django project to manage articles and users in a newspaper',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False
+}
