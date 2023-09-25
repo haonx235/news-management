@@ -19,8 +19,8 @@ First, run SQL script in `sql/db_creation.sql` file to create database and datab
 Create virtual environment `venv` for project (using virtualenv) and install required packages in `requirements.txt`:
 
 ```commandline
-py -m pip install virtualenv
-py -m virtualenv venv
+python3 -m pip install virtualenv
+python3 -m virtualenv venv
 
 # Activate virtual environment
 # On Ubuntu
@@ -29,7 +29,7 @@ source venv/bin/activate
 .\venv\Scripts\activate
 
 # Install packages
-py -m pip install -r requirement.txt
+python3 -m pip install -r requirement.txt
 ```
 
 Generate tables and initial data to database:
