@@ -72,8 +72,26 @@ cd newsmanagement
 
 You can browse API documentation on web browser via http://127.0.0.1:8000/docs/
 
+![API documentation](/images/1.png)
+*API documentation generated using drf-spectacular*
+
 ## Docker
+### Prerequisites
+- Docker 24.0.6
+- Docker Compose 1.27.4
 
-TBD
+### Installation
 
+First, build docker image:
 
+```commandline
+sudo docker-compose build
+```
+
+Run app through docker compose on port 8000:
+```commandline
+sudo docker-compose up
+```
+
+![docker compose](/images/2.png)
+*Run app successfully using docker-compose*
